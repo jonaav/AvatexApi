@@ -14,16 +14,24 @@ public class Compra implements Serializable {
     private Long id;
 
     private String proveedor;
-    private Date fecha;
+    private Date fechaRegistro;
     private String numComprobante;
-    @OneToMany
+    private Double montoTotal;
+    private Date fechaPago;
+    private String estado;
+    @Transient
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<DetalleCompra> detalleCompras;
 
-    public Compra(Long id, String proveedor, Date fecha, String numComprobante, List<DetalleCompra> detalleCompras) {
+    public Compra(Long id, String proveedor, Date fechaRegistro, String numComprobante, Double montoTotal,
+                  Date fechaPago, String estado, List<DetalleCompra> detalleCompras) {
         this.id = id;
         this.proveedor = proveedor;
-        this.fecha = fecha;
+        this.fechaRegistro = fechaRegistro;
         this.numComprobante = numComprobante;
+        this.montoTotal = montoTotal;
+        this.fechaPago = fechaPago;
+        this.estado = estado;
         this.detalleCompras = detalleCompras;
     }
 
@@ -45,12 +53,12 @@ public class Compra implements Serializable {
         this.proveedor = proveedor;
     }
 
-    public Date getFecha() {
-        return fecha;
+    public Date getFechaRegistro() {
+        return fechaRegistro;
     }
 
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
+    public void setFechaRegistro(Date fechaRegistro) {
+        this.fechaRegistro = fechaRegistro;
     }
 
     public String getNumComprobante() {
@@ -59,6 +67,30 @@ public class Compra implements Serializable {
 
     public void setNumComprobante(String numComprobante) {
         this.numComprobante = numComprobante;
+    }
+
+    public Double getMontoTotal() {
+        return montoTotal;
+    }
+
+    public void setMontoTotal(Double montoTotal) {
+        this.montoTotal = montoTotal;
+    }
+
+    public Date getFechaPago() {
+        return fechaPago;
+    }
+
+    public void setFechaPago(Date fechaPago) {
+        this.fechaPago = fechaPago;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 
     public List<DetalleCompra> getDetalleCompras() {

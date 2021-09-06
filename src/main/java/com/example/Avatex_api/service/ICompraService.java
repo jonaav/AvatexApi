@@ -10,7 +10,9 @@ public interface ICompraService {
 
     public List<Compra> findCompras();
     public Compra findCompraByID(Long id);
-    public Compra findCompraByMonth(String mes);
+    public List<Compra> findCompraByFechaPago(Date fecha);
+    public List<Compra> findCompraByMes(String mes);
+    public List<Compra> findCompraByProveedor(String proveedor);
     public Compra save(Compra compra);
     public Compra cancel(Long id);
 }

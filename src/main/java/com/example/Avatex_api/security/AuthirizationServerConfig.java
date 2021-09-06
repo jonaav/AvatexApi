@@ -37,7 +37,8 @@ public class AuthirizationServerConfig extends AuthorizationServerConfigurerAdap
     //valida authenticacion de cliente app y usuario
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-        clients.inMemory().withClient("flutterapp")
+        //clients.inMemory().withClient("flutterapp")
+        clients.inMemory().withClient("angularapp")
         .secret(passwordEncoder.encode("12345"))
         .scopes("read", "write")
         .authorizedGrantTypes("password", "refresh_token")

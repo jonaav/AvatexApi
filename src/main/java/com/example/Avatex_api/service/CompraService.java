@@ -5,6 +5,7 @@ import com.example.Avatex_api.dao.IPiezaDao;
 import com.example.Avatex_api.entity.Compra;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.Date;
 import java.util.List;
 
 public class CompraService implements ICompraService{
@@ -26,8 +27,18 @@ public class CompraService implements ICompraService{
     }
 
     @Override
-    public Compra findCompraByMonth(String mes) {
-        return null;
+    public List<Compra> findCompraByFechaPago(Date fechaPago) {
+        return (List<Compra>) compraDao.findByFechaPago(fechaPago);
+    }
+
+    @Override
+    public List<Compra> findCompraByMes(String mes) {
+        return (List<Compra>) compraDao.findByMes(mes);
+    }
+
+    @Override
+    public List<Compra> findCompraByProveedor(String proveedor) {
+        return (List<Compra>) compraDao.findByProveedor(proveedor);
     }
 
     @Override

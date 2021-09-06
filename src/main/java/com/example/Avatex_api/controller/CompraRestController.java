@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 
+import java.util.Date;
 import java.util.List;
 
 public class CompraRestController {
@@ -24,17 +25,36 @@ public class CompraRestController {
         return compraService.findCompraByID(id);
     }
 
+    @GetMapping("/compras/:fechaPago")
+    public List<Compra> findByFechaPago(Date fechaPago){
+        return compraService.findCompraByFechaPago(fechaPago);
+    }
+
+    @GetMapping("/compras/:mes")
+    public List<Compra> findByMonth(String mes){
+        return compraService.findCompraByMes(mes);
+    }
+
+    @GetMapping("/compras/:Proveedor")
+    public List<Compra> findByProveedor(String proveedor){
+        return compraService.findCompraByProveedor(proveedor);
+    }
+
     @PostMapping("/compras")
     public Compra create(Compra compra){
         return  compraService.save(compra);
+    }
+
+    //Actualizar a pagado
+    @PutMapping("/compras/:id")
+    public Compra updateEstado(Long id){
+        return compraService.cancel(id);
     }
 
     @PutMapping("/compras/:id")
     public Compra cancel(Long id){
         return compraService.cancel(id);
     }
-
-
 
 
 }
