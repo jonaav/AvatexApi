@@ -1,3 +1,4 @@
+/*
 package com.example.Avatex_api.security;
 
 import org.bouncycastle.crypto.generators.BCrypt;
@@ -49,3 +50,4 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
 
 }
+*/

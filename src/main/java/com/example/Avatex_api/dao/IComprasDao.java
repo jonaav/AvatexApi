@@ -14,8 +14,9 @@ public interface IComprasDao extends JpaRepository<Compra,Long> {
     List<Compra> findByFechaPago(@Param("fechaPago") Date fechaPago);
 
      */
+    /*
     List<Compra> findByFechaPago(Date fechaPago);
     List<Compra> findByMes(String mes);
     List<Compra> findByProveedor(String proveedor);
-
+*/
 }
